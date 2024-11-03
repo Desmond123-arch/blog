@@ -2,7 +2,7 @@ package database
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"os"
 
 	"github.com/jackc/pgx/v5"
@@ -17,19 +17,21 @@ func SetupDatabase() (*bun.DB, error){
 	// urlExample := "postgres://username:password@localhost:5432/database_name"
 	err := godotenv.Load()
 	if err != nil {
-		//TODO[]: Setup Log file for this
-		fmt.Println("Env could not be loaded")
+		log.Printf("Database Error: %s", err)
+		return nil, err
 	}
 	config, err := pgxpool.ParseConfig(os.Getenv("POSTGRES_URL"))
 	if err != nil {
-		fmt.Println("Database connection failed");
+		log.Printf("Database Error: %s", err)
+		return nil, err
 	}
 
 	config.ConnConfig.DefaultQueryExecMode = pgx.QueryExecModeSimpleProtocol
 
 	pool, err := pgxpool.NewWithConfig(context.Background(), config)
 	if err != nil {
-		fmt.Println("Database connection failed");
+		log.Printf("Database Error: %s", err)
+		return nil, err
 	}
 	
 	sqldb := stdlib.OpenDBFromPool(pool)
