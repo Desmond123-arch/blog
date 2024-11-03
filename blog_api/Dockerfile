@@ -1,4 +1,4 @@
-FROM go:latest
+FROM go:1.23
 
 WORKDIR /usr/app/api
 
