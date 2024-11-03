@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file ./blog_api/Dockerfile --tag blog_api:$(date +%s)
+      run: docker build ./blog_api --file ./blog_api/Dockerfile --tag blog_api:$(date +%s)
