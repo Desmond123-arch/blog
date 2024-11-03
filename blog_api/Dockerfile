@@ -1,4 +1,4 @@
-FROM go:bookworm
+FROM go:latest
 
 WORKDIR /usr/app/api
 
