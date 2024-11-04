@@ -29,5 +29,5 @@ func main() {
 	r.PUT("/:id",routes.PutOne )
 	r.DELETE("/:id", routes.DeleteOne)
 
-	r.Run()
+	r.Run(":8080")
 }
