@@ -29,5 +29,9 @@ func main() {
 	r.PUT("/:id",routes.PutOne )
 	r.DELETE("/:id", routes.DeleteOne)
 	port := os.Getenv("PORT")
+	
+	if port == "" {
+		port = "3000"
+	}
 	r.Run(port)
 }
