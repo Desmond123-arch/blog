@@ -62,26 +62,33 @@ POST /blogs
 Content-Type: application/json
 
 {
-  "title": "Your Title",
-  "content": "Your Content"
+  Id
+	Title
+	SubHeading
+	Author
+	Content
+	PublishDate
+	ImageUrl
 }
 ```
 
 ### Success Response
 ```json
 {
-  "blogs": {
-    "id": 1,
-    "title": "Your Title",
-    "content": "Your Content"
-  }
+  Id: 
+	Title: ""
+	SubHeading: ""
+	Author: ""
+	Content: ""
+	PublishDate: ""
+	ImageUrl: ""
 }
 ```
 
 ### Error Response
 ```json
 {
-  "validation_errors": {
+  "error": {
     "Title": "Field is required"
   }
 }
@@ -101,22 +108,15 @@ The API includes comprehensive error handling:
 blog_api/
 ├── pkg/
 │   ├── database/
-│   │   └── database.go
+│   │   └── handlers.go
 │   ├── models/
-│   │   └── blog.go
+│   │   └── blogs.go
 │   └── routes/
-│       └── routes.go
+│       └── crud.go
 └── main.go
 ```
 
-## Contributing
+[Live url](https://blog-ff9k.onrender.com)
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+### Might link with frontend later
