@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/Desmond123-arch/blog/blog_api/pkg/routes"
@@ -29,5 +30,10 @@ func main() {
 	r.PUT("/:id",routes.PutOne )
 	r.DELETE("/:id", routes.DeleteOne)
 	port := os.Getenv("PORT")
-	r.Run(port)
+	if port == "" {
+		port = "8080"
+	}
+	if err := r.Run(":" + port); err != nil {
+        log.Panicf("error: %s", err)
+	}
 }
