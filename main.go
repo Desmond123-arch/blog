@@ -28,6 +28,6 @@ func main() {
 	r.GET("/:id", routes.GetOne)
 	r.PUT("/:id",routes.PutOne )
 	r.DELETE("/:id", routes.DeleteOne)
-
-	r.Run(":8080")
+	port := os.Getenv("PORT")
+	r.Run(port)
 }
