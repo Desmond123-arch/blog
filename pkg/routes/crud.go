@@ -140,6 +140,7 @@ func PostOne(ctx *gin.Context) {
 			errs[err.Field()] = validationErrors(err.Tag())
 		}
 		ctx.JSON(http.StatusBadRequest, gin.H{"validation_errors": errs})
+		return
 	}
 
 	_, err = db.NewCreateTable().Model((*(models.Blog))(nil)).IfNotExists().Exec(ctx)
