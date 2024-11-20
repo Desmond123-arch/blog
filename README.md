@@ -60,11 +60,13 @@ go run main.go
 ```bash
 POST /blogs
 Content-Type: application/json
-
-{
-  "title": "Your Title",
-  "content": "Your Content"
-}
+	Id
+	Title string `json:"title" validate:"required"`
+	SubHeading string `json:"subheading" validate:"required"`
+	Author string `json:"author" validate:"required"`
+	Content string `json:"content"`
+	PublishDate string `json:"publishedDate" validate:"required"`
+	ImageUrl string `json:"imageUrl" validate:"required"`
 ```
 
 ### Success Response
