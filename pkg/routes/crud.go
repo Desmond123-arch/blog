@@ -134,9 +134,8 @@ func PostOne(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
 		return
 	}
-	newPost.PublishDate = time.Now().Format("%d-%m-%Y")
+	newPost.PublishDate = time.Now().Format(time.RFC850)
 
-	fmt.Println(newPost);
 	if err := validate.Struct(newPost); err != nil {
 		errs := make(map[string]string)
 		for _, err := range err.(validator.ValidationErrors) {
