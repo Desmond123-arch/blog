@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/Desmond123-arch/blog/blog_api/pkg/database"
 	"github.com/Desmond123-arch/blog/blog_api/pkg/models"
@@ -133,7 +134,9 @@ func PostOne(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
 		return
 	}
+	newPost.PublishDate = time.Now().Format("%d-%d-%d ")
 
+	fmt.Println(newPost);
 	if err := validate.Struct(newPost); err != nil {
 		errs := make(map[string]string)
 		for _, err := range err.(validator.ValidationErrors) {
