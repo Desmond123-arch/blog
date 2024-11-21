@@ -71,13 +71,17 @@ Content-Type: application/json
 
 ### Success Response
 ```json
-{
-  "blogs": {
-    "id": 1,
-    "title": "Your Title",
-    "content": "Your Content"
-  }
-}
+[
+    {
+        "id": "number",
+        "title": "string",
+        "subheading": "string",
+        "author": "string",
+        "content": "string",
+        "publishedDate": "string",
+        "imageUrl": "string"
+    }
+]
 ```
 
 ### Error Response
